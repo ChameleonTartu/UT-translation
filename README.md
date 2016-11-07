@@ -1,2 +1,3 @@
 # UT-translation
-Full 
+
+Front-end and Back-end project for UT translation.
