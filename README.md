@@ -2,15 +2,16 @@
 
 Front-end and Back-end project for UT translation.
 
-TODO:
+## TODO:
 
 - Add menu for mobile phones
 
 - Update links into the text
 
-- Do internatiolization(English/Estonian)
+- Do internationalization(English/Estonian)
 
 - Add JS scripts for generation translation responses from APIs
 
-- Update languages with JS script(translate from/translate to)
+- Finalize language choice style-sheet
 
+- Update languages with JS script(translate from/translate to)

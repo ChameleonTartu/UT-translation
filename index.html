@@ -4,8 +4,15 @@
 <head>
     <title>Contact information</title>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    -->
+
     <link href="css/language-translation-field.css" rel="stylesheet">
     <link href="css/language-buttons.css" rel="stylesheet">
     <link href="css/translate-button.css" rel="stylesheet">
@@ -16,7 +23,7 @@
 
 <body>
 
-      <div class="container-full">
+      <div class="container">
       <!--language_buttons-->
       <div class="row">
           <div id="languages" class="header hidden-xs">
@@ -51,11 +58,20 @@
                     col-md-4 col-md-offset-2
                     col-sm-4 col-sm-offset-2
                     col-xs-4 col-xs-offset-2">
-              <select class="translate-from">
-                <option>Eesti</option>
-                <option>Inglise</option>
-                <option>Samoa</option>
-              </select>
+            <div class="dropdown pull-left">
+              <button class="btn dropdown-toggle translate-from"
+                      type="button"
+                      data-toggle="dropdown"
+                      id="language-translate-from">
+                Vali keel...
+                <span class="caret dropdown-arrow"></span></button>
+              <ul class="dropdown-menu" id="language-translate-from-list">
+                <li><a href="#" tabindex="-1">Eesti</a></li>
+                <li><a href="#" tabindex="-1">Inglise</a></li>
+                <li><a href="#" tabindex="-1">Samoa</a></li>
+              </ul>
+
+            </div>
         </div>
 
         <div class="form-group
@@ -63,11 +79,19 @@
                     col-md-4
                     col-sm-4
                     col-xs-4">
-              <select class="translate-to pull-right">
-                <option>Eesti</option>
-                <option>Inglise</option>
-                <option>Samoa</option>
-              </select>
+                  <div class="dropdown pull-right">
+                    <button class="btn translate-from" id="language-translate-to"
+                            data-toggle="dropdown">
+                      Vali keel...
+                      <span class="caret dropdown-arrow"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="language-translate-to-list">
+                      <li><a href="#" tabindex="-1">Eesti</a></li>
+                      <li><a href="#" tabindex="-1">Inglise</a></li>
+                      <li><a href="#" tabindex="-1">Samoa</a></li>
+                    </ul>
+
+                  </div>
         </div>
 
         <div class="translation form-group
@@ -94,14 +118,17 @@
                     col-md-1 col-md-offset-2
                     col-sm-1 col-sm-offset-2
                     col-xs-1 col-xs-offset-2">
+                    <!--
                     <img clss="img-thumbnail" src="image/Google Translate_GREY.png"/>
+                    -->
         </div>
       </div>
 
 
-      <div class="row footer">
+      <div class="row">
+        <div class="footer">
           <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-right">
-            <a href="#">
+            <a href="project_information.html">
               Projekti üldinfo
             </a>
           </div>
@@ -112,10 +139,12 @@
             </a>
           </div>
         </div>
-
+      </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/language.js"></script>
 </body>
 
 </html>

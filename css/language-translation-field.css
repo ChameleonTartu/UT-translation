@@ -22,6 +22,15 @@ textarea {
   outline: 0;
 }
 
+.dropdown-arrow {
+  color: #e73627;
+}
+
+.dropdown-menu {
+  text-decoration: none;
+  border: 0;
+}
+
 .translation-area {
   width: 100%;
 }
