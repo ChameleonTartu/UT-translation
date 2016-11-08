@@ -26,11 +26,20 @@ textarea {
   color: #e73627;
 }
 
-.dropdown-menu {
-  text-decoration: none;
-  border: 0;
+.dropdown-menu>li>a {
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+.dropdown-menu>li>a:active, .dropdown-menu>li>a:hover {
+  color: #e73627;
+  background-color: #ffffff;
 }
 
 .translation-area {
   width: 100%;
+}
+
+input:checked {
+  color: #e73627;
 }
