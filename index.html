@@ -14,25 +14,29 @@
     -->
 
     <link href="css/language-translation-field.css" rel="stylesheet">
+    <link href="css/shared.css" rel="stylesheet">s
     <link href="css/language-buttons.css" rel="stylesheet">
     <link href="css/translate-button.css" rel="stylesheet">
     <link href="css/contacts.css" rel="stylesheet">
-    <link href="css/shared.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="cursor-custom">
 
       <div class="container">
       <!--language_buttons-->
       <div class="row">
           <div id="languages" class="header hidden-xs">
-            <div class = "btn-sm language-btn language-left-btn">
-              EST
-            </div>
-            <div class = "btn-sm language-btn language-right-btn">
-              ENG
-            </div>
+            <a href="#">
+              <div class = "btn-sm language-btn language-left-btn">
+                EST
+              </div>
+            </a>
+            <a href="#">
+              <div class = "btn-sm language-btn language-right-btn">
+                ENG
+              </div>
+            </a>
         </div>
       </div>
 
@@ -102,14 +106,16 @@
           <textarea class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="7" cols="50" name="text" placeholder="Palun kirjutage oma tekst siia..."></textarea>
         </div>
 
-        <div class="translate-btn
-                    col-lg-2 col-lg-offset-5
-                    col-md-2 col-md-offset-5
-                    col-sm-2 col-sm-offset-5
-                    col-xs-2 col-xs-offset-5
-                    text-center">
-          Tolgi
-        </div>
+        <a href="#">
+          <div class="translate-btn
+                      col-lg-2 col-lg-offset-5
+                      col-md-2 col-md-offset-5
+                      col-sm-2 col-sm-offset-5
+                      col-xs-2 col-xs-offset-5
+                      text-center">
+            Tolgi
+          </div>
+        </a>
       </div>
 
       <div class="space30px"></div>
@@ -145,7 +151,44 @@
         </div>
       </div>
 
+      <!-- TODO Translation should be added by JS -->
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2
+                    col-md-8 col-md-offset-2
+                    col-sm-8 col-sm-offset-2
+                    col-xs-8 col-xs-offset-2">
+          <div class="row">
+            <div class="wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <img class="img-responsive icon-max-size" src="image/Microsoft_GREY.png"/>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+          </div>
 
+          <div class="space10px"></div>
+
+          <div class="row">
+            <div class="wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <img class="img-responsive icon-max-size" src="image/TU_GREY.png"/>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+              Lorem dolor sit amet ipsum, consectetur adipiscing.
+            </div>
+          </div>
+
+          <div class="space10px"></div>
+
+          <div class="row">
+            <div class="wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <img class="img-responsive icon-max-size" src="image/Google_GREY.png"/>
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+              Lorem ipsum dolor sit amet, adipiscing consectetur elit.
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="footer">

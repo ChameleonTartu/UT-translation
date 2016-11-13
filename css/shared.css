@@ -14,3 +14,20 @@
 .space30px {
   margin: 30px;
 }
+
+.space10px {
+  margin: 10px;
+}
+
+.icon-max-size {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.cursor-custom {
+   cursor: url(image/hand-pointer-icon.png), auto;
+}
+
+.general-info {
+  color: #e73627;
+}

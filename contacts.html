@@ -6,42 +6,56 @@
     <meta charset="utf-8"/>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/shared.css" rel="stylesheet">
     <link href="css/language-buttons.css" rel="stylesheet">
     <link href="css/contacts.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="cursor-custom">
 
-      <div class="container-full">
+      <div class="container">
         <!--language_buttons-->
 
         <div class="row">
             <div id="languages" class="header hidden-xs">
-              <div class = "btn-sm language-btn language-left-btn">
-                EST
-              </div>
-              <div class = "btn-sm language-btn language-right-btn">
-                ENG
-              </div>
+              <a href="#">
+                <div class = "btn-sm language-btn language-left-btn">
+                  EST
+                </div>
+              </a>
+              <a href="#">
+                <div class = "btn-sm language-btn language-right-btn">
+                  ENG
+                </div>
+              </a>
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2
+                      col-md-8 col-md-offset-2
+                      col-sm-8 col-sm-offset-2
+                      col-xs-8 col-xs-offset-2
+                      university-title">
+                      Tartu Ülikooli masintõlge
+          </div>
 
-        <div class="university-title">
-          Tartu Ülikooli masintõlge
+          <!-- 3 stripes toggle navbar should be here! -->
+          <div class="visible-xs visible-sm col-sm-2 col-xs-2">
+          </div>
         </div>
 
-        <div class="content">
-          <div class="contact">
-            Kontakt
-          </div>
+        <div class="content col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+            <div class="contact">
+              Kontakt
+            </div>
 
-          <div class="text">
-            Projektijuht on Tartu Ülikooli Keeletehnoloogia vanemteadur <span>Heiki-Jaan Kaalep</span>.
-    Küsimustele ja ettepanekutele vastavad Tartu Ülikooli Keeletehnoloogia dotsent
-    <span>Mark Fišel</span> ja infotehnoloogia spetsialist <span>Harri Kirik</span>.
-          </div>
+            <div class="text">
+              Projektijuht on Tartu Ülikooli Keeletehnoloogia vanemteadur <a href="#"><span class="general-info">Heiki-Jaan Kaalep</span></a>.
+      Küsimustele ja ettepanekutele vastavad Tartu Ülikooli Keeletehnoloogia dotsent
+      <a href="#"><span class="general-info">Mark Fišel</span></a> ja infotehnoloogia spetsialist <a href="#"><span class="general-info">Harri Kirik</span></a>.
+            </div>
         </div>
 
         <div class="row">
