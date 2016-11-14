@@ -1,17 +1,3 @@
-function ShowTranslation() {
-    $("#translation-title").html("Palun vali kõige parim tõlge:");
-    $("#translation-choice").html('<div class="radio"> \
-      <label><input type="radio" name="optradio" onchange="ShowTranslatorsBasedOnTranslation()">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label> \
-    </div> \
-    <div class="radio" onclick="ShowTranslatorsBasedOnTranslation()"> \
-      <label><input type="radio" name="optradio" onchange="ShowTranslatorsBasedOnTranslation()">Lorem dolor sit amet ipsum, consectetur adipiscing.</label> \
-    </div> \
-    <div class="radio"> \
-      <label><input type="radio" name="optradio" onchange="ShowTranslatorsBasedOnTranslation()">Lorem ipsum dolor sit amet, adipiscing consectetur elit.</label> \
-    </div>');
-};
-
-/*
 function ShowTranslatorsBasedOnTranslation() {
   //$("#translation-title").empty();
   //$("#translation-choice").empty();
@@ -49,10 +35,3 @@ function ShowTranslatorsBasedOnTranslation() {
     </div>'
   );
 };
-*/
-
-$(function(){
-  $('div.radio').click(function(){
-    alert("WTF??");
-  });
-});

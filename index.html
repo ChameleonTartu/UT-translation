@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -22,8 +22,7 @@
 </head>
 
 <body class="cursor-custom">
-
-      <div class="container">
+  <div class="container">
       <!--language_buttons-->
       <div class="row">
           <div id="languages" class="header hidden-xs">
@@ -112,7 +111,7 @@
                       col-md-2 col-md-offset-5
                       col-sm-2 col-sm-offset-5
                       col-xs-2 col-xs-offset-5
-                      text-center">
+                      text-center" onclick="ShowTranslation()">
             Tolgi
           </div>
         </a>
@@ -129,23 +128,16 @@
           <span class="col-lg-offset-1
                        col-md-offset-1
                        col-sm-offset-1
-                       col-xs-offset-1">
-                       Palun vali kõige parim tõlge:</span>
+                       col-xs-offset-1"
+                id = "translation-title">
+                       </span>
 
           <div class="col-lg-offset-2
                       col-md-offset-2
                       col-sm-offset-2
                       col-xs-offset-2">
-            <form>
-              <div class="radio">
-                <label><input type="radio" name="optradio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="optradio">Lorem dolor sit amet ipsum, consectetur adipiscing.</label>
-              </div>
-              <div class="radio disabled">
-                <label><input type="radio" name="optradio">Lorem ipsum dolor sit amet, adipiscing consectetur elit.</label>
-              </div>
+            <form id="translation-choice">
+
             </form>
           </div>
         </div>
@@ -156,37 +148,8 @@
         <div class="col-lg-8 col-lg-offset-2
                     col-md-8 col-md-offset-2
                     col-sm-8 col-sm-offset-2
-                    col-xs-8 col-xs-offset-2">
-          <div class="row">
-            <div class="wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <img class="img-responsive icon-max-size" src="image/Microsoft_GREY.png"/>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-          </div>
-
-          <div class="space10px"></div>
-
-          <div class="row">
-            <div class="wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <img class="img-responsive icon-max-size" src="image/TU_GREY.png"/>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-              Lorem dolor sit amet ipsum, consectetur adipiscing.
-            </div>
-          </div>
-
-          <div class="space10px"></div>
-
-          <div class="row">
-            <div class="wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                <img class="img-responsive icon-max-size" src="image/Google_GREY.png"/>
-            </div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-              Lorem ipsum dolor sit amet, adipiscing consectetur elit.
-            </div>
-          </div>
+                    col-xs-8 col-xs-offset-2"
+            id="companies-translators">
         </div>
       </div>
 
@@ -210,6 +173,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/language.js"></script>
+    <script src="js/page.js"></script>
+    <script src="js/test.js"></script>
 </body>
 
 </html>
