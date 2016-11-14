@@ -1,0 +1,56 @@
+/* TODO fix for IE9 */
+@font-face {
+    font-family: abrilfatfaceregular;
+    src: url('AbrilFatface-Regular.ttf'), format('ttf');
+}
+
+.university-title {
+  font: bold 36pt abrilfatfaceregular !important;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  margin-top: 10%;
+}
+
+
+@font-face {
+    font-family: sourcesansprobolditalic;
+    src: url('SourceSansPro-BoldItalic.ttf'), format('ttf');
+}
+
+.contact {
+  margin-top: 10%;
+  font: italic bold 20pt sourcesansprobolditalic;
+  letter-spacing: -1;
+  text-align: justify;
+  text-decoration: none;
+  border-bottom: 0.5mm solid #e73627;
+  display: inline-block;
+}
+
+
+@font-face {
+    font-family: sourcesansprolight;
+    src: url('SourceSansPro-Light.ttf'), format('ttf');
+}
+
+.text > span {
+  color: #e73627 !important;
+  color: inherit;
+}
+
+.text {
+  margin-top: 5%;
+  font-size: 10pt;
+  color: #2e2722;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content {
+  margin-left: 15%;
+  margin-right: 15%;
+}

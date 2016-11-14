@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact information</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    -->
+
+    <link href="css/language-translation-field.css" rel="stylesheet">
+    <link href="css/shared.css" rel="stylesheet">s
+    <link href="css/language-buttons.css" rel="stylesheet">
+    <link href="css/translate-button.css" rel="stylesheet">
+    <link href="css/contacts.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+</head>
+
+<body class="cursor-custom">
+  <div class="container">
+      <!--language_buttons-->
+      <div class="row">
+          <div id="languages" class="header hidden-xs">
+            <a href="#">
+              <div class = "btn-sm language-btn language-left-btn">
+                EST
+              </div>
+            </a>
+            <a href="#">
+              <div class = "btn-sm language-btn language-right-btn">
+                ENG
+              </div>
+            </a>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2
+                    col-md-8 col-md-offset-2
+                    col-sm-8 col-sm-offset-2
+                    col-xs-8 col-xs-offset-2
+                    university-title">
+          Tartu Ülikooli masintõlge
+        </div>
+
+        <!-- 3 stripes toggle navbar should be here! -->
+        <div class="visible-xs visible-sm col-sm-2 col-xs-2">
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="form-group
+                    col-lg-4 col-lg-offset-2
+                    col-md-4 col-md-offset-2
+                    col-sm-4 col-sm-offset-2
+                    col-xs-4 col-xs-offset-2">
+            <div class="dropdown pull-left">
+              <button class="btn dropdown-toggle translate-from"
+                      type="button"
+                      data-toggle="dropdown"
+                      id="language-translate-from">
+                Vali keel...
+                <span class="caret dropdown-arrow"></span></button>
+              <ul class="dropdown-menu" id="language-translate-from-list">
+                <li><a href="#" tabindex="-1">Eesti</a></li>
+                <li><a href="#" tabindex="-1">Inglise</a></li>
+                <li><a href="#" tabindex="-1">Soome</a></li>
+              </ul>
+
+            </div>
+        </div>
+
+        <div class="form-group
+                    col-lg-4
+                    col-md-4
+                    col-sm-4
+                    col-xs-4">
+                  <div class="dropdown pull-right">
+                    <button class="btn translate-from" id="language-translate-to"
+                            data-toggle="dropdown">
+                      Vali keel...
+                      <span class="caret dropdown-arrow"></span>
+                    </button>
+                    <ul class="dropdown-menu" id="language-translate-to-list">
+                      <li><a href="#" tabindex="-1">Eesti</a></li>
+                      <li><a href="#" tabindex="-1">Inglise</a></li>
+                      <li><a href="#" tabindex="-1">Soome</a></li>
+                    </ul>
+
+                  </div>
+        </div>
+
+        <div class="translation form-group
+                    col-lg-8 col-lg-offset-2
+                    col-md-8 col-md-offset-2
+                    col-sm-8 col-sm-offset-2
+                    col-xs-8 col-xs-offset-2">
+          <textarea class="col-lg-12 col-md-12 col-sm-12 col-xs-12" rows="7" cols="50" name="text" placeholder="Palun kirjutage oma tekst siia..."></textarea>
+        </div>
+
+        <a href="#">
+          <div class="translate-btn
+                      col-lg-2 col-lg-offset-5
+                      col-md-2 col-md-offset-5
+                      col-sm-2 col-sm-offset-5
+                      col-xs-2 col-xs-offset-5
+                      text-center" onclick="ShowTranslation()">
+            Tolgi
+          </div>
+        </a>
+      </div>
+
+      <div class="space30px"></div>
+
+      <!--Initial state-->
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2
+                    col-md-8 col-md-offset-2
+                    col-sm-8 col-sm-offset-2
+                    col-xs-8 col-xs-offset-2">
+          <span class="col-lg-offset-1
+                       col-md-offset-1
+                       col-sm-offset-1
+                       col-xs-offset-1"
+                id = "translation-title">
+                       </span>
+
+          <div class="col-lg-offset-2
+                      col-md-offset-2
+                      col-sm-offset-2
+                      col-xs-offset-2">
+            <form id="translation-choice">
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- TODO Translation should be added by JS -->
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2
+                    col-md-8 col-md-offset-2
+                    col-sm-8 col-sm-offset-2
+                    col-xs-8 col-xs-offset-2"
+            id="companies-translators">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="footer">
+          <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-right">
+            <a href="project_information.html">
+              Projekti üldinfo
+            </a>
+          </div>
+
+          <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-left">
+            <a href="contacts.html">
+              Kontakt
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/page.js"></script>
+    <script src="js/test.js"></script>
+</body>
+
+</html>
