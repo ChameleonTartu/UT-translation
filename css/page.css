@@ -2,7 +2,7 @@
   background-color: #e73627 !important;
   color: white !important;
   border: red !important;
-  font-family: SourceSansPro-BoldItalic;
+  font-family: SourceSansPro-BoldItalic !important;
   src: url('fonts/SourceSansPro-BoldItalic.ttf');
   font-size: 10pt !important;
 }

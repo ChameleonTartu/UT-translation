@@ -1,25 +1,35 @@
 @font-face {
     font-family: sourcesansprolight;
-    src: url('SourceSansPro-Light.ttf'), format('ttf');
+    src: url('../fonts/SourceSansPro-Light.ttf');
+}
+
+/* shared_fonts */
+textarea, .dropdown {
+  font-family: 'sourcesansprolight';
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 textarea {
-  font-family: sourcesansprolight;
-  /*text-decoration: none;*/
+  font-size: 10pt;
+  color: #2e2722;
   resize: none;
   border: #000000 solid 0.37px;
+}
+
+.dropdown {
+  font-size: 9.8pt;
+  color: #e73627;
 }
 
 .translation {
   text-align: center;
 }
 
-
 .translate-from, .translate-to {
   color: #5d5550;
   background: #ffffff;
   border: 0;
-  outline: 0;
 }
 
 .dropdown-arrow {
@@ -31,15 +41,12 @@ textarea {
     text-decoration: none;
 }
 
-.dropdown-menu>li>a:active, .dropdown-menu>li>a:hover {
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:active, .dropdown-menu>li>a:hover {
   color: #e73627;
   background-color: #ffffff;
+  border: 0;
 }
 
 .translation-area {
   width: 100%;
-}
-
-input:checked {
-  color: #e73627;
 }

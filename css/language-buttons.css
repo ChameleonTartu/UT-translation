@@ -1,7 +1,7 @@
 /* TODO fix for IE9 */
 @font-face {
-  font-family: sourcesansprorelight;
-	src: url('SourceSansPro-Light.ttf') format('ttf');
+  font-family: sourcesanspro;
+	src: url('../fonts/SourceSansPro.ttf');
 }
 
 .header {
@@ -13,10 +13,10 @@
 .language-btn {
   color: #ffffff;
   background: #e73627;
-  font-family: sourcesansprorelight;
+  font-family: 'sourcesanspro';
   font-size: 8pt;
+  font-weight: 400;
   text-decoration: none;
-  /*width: 20px;*/
   float: left;
 }
 
