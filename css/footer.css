@@ -1,3 +1,17 @@
+@font-face {
+    font-family: sourcesansproregular;
+    src: url('../fonts/SourceSansPro-Regular.ttf');
+}
+
+/*footer fonts*/
+.footer {
+  font-family: 'sourcesansproregular';
+  font-size: 8pt;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
 .footer {
     position: absolute;
     right: 0;
@@ -5,26 +19,11 @@
     left: 0;
     border: 0;
     background-color: #e73627;
-    color: #ffffff;
     text-decoration: none;
     font-size: 8pt;
 }
-
-/*
-.footer > div {
-    padding: 3px 10px 3px 10px;
-}
-*/
 
 a, a:visited, a:hover, a:link, a:active {
   color: #FFFFFF;
   text-decoration: none;
 }
-
-/*
-.sub-footer {
-  width: 50%;
-  float: left;
-  text-align: right;
-}
-*/

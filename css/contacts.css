@@ -1,11 +1,12 @@
 /* TODO fix for IE9 */
 @font-face {
     font-family: abrilfatfaceregular;
-    src: url('AbrilFatface-Regular.ttf'), format('ttf');
+    src: url('../fonts/AbrilFatface-Regular.ttf');
 }
 
 .university-title {
-  font: bold 36pt abrilfatfaceregular !important;
+  font-family: 'abrilfatfaceregular';
+  font-size: 36pt;
   font-weight: 400;
   color: #000000;
   text-align: center;
@@ -15,13 +16,15 @@
 
 @font-face {
     font-family: sourcesansprobolditalic;
-    src: url('SourceSansPro-BoldItalic.ttf'), format('ttf');
+    src: url('../fonts/SourceSansPro-BoldItalic.ttf');
 }
 
 .contact {
   margin-top: 10%;
-  font: italic bold 20pt sourcesansprobolditalic;
-  letter-spacing: -1;
+  font-family: 'sourcesansprobolditalic';
+  font-size: 20pt;
+  font-style: italic;
+  letter-spacing: -1px;
   text-align: justify;
   text-decoration: none;
   border-bottom: 0.5mm solid #e73627;
@@ -31,18 +34,26 @@
 
 @font-face {
     font-family: sourcesansprolight;
-    src: url('SourceSansPro-Light.ttf'), format('ttf');
+    src: url('../fonts/SourceSansPro-Light.ttf');
 }
 
+/*Text fonts*/
+.text {
+  font-family: 'sourcesansprolight';
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  font-size: 10pt;
+  color: #2e2722;
+}
+
+
 .text > span {
-  color: #e73627 !important;
+  color: #e73627;
   color: inherit;
 }
 
 .text {
   margin-top: 5%;
-  font-size: 10pt;
-  color: #2e2722;
 }
 
 .container-full {
