@@ -15,8 +15,7 @@ function CreateImagePath(company) {
 }
 
 function CleanTransaltionTitle() {
-  $("#translation-title").empty();
-  $("div[class='space5percent']").remove();
+  $("#translation-title").addClass("invisible");
 }
 
 function CleanTranslationDivs() {
@@ -71,11 +70,7 @@ function RandomShuffle(content, num_swaps = 5) {
 }
 
 function CreateTranslationTitle(translation_title) {
-  CleanTransaltionTitle();
-  $("#translation-title").text(translation_title);
-  var space_div = document.createElement('div');
-  $(space_div).addClass("space5percent");
-  $($("#translation-title").parent()).append(space_div);
+  $("#translation-title").removeClass("invisible");
 }
 
 function ShowTranslation(content = [{translator: "google", translation: "hello"},
