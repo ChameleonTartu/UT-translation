@@ -73,9 +73,9 @@ function CreateTranslationTitle(translation_title) {
   $("#translation-title").removeClass("invisible");
 }
 
-function ShowTranslation(content = [{translator: "google", translation: "hello"},
-                                    {translator: "google", translation: "goodb"},
-                                    {translator: "google", translation: "oouch"}],
+function ShowTranslation(content = [{translator: "google", translation: "Lorem ipsum dolor sit amet, consecteturadipiscing elit."},
+                                    {translator: "google", translation: "Lorem dolor sit amet ipsum, consecteturadipiscing"},
+                                    {translator: "google", translation: "Lorem ipsum dolor sit amet, adipiscingconsectetur elit."}],
                          translation_title = "Palun vali kõige parim tõlge:") {
   CleanTranslationAll();
   CreateTranslationTitle(translation_title);
@@ -89,9 +89,9 @@ function ShowTranslation(content = [{translator: "google", translation: "hello"}
 };
 
 function ShowTranslatorsBasedOnTranslation(
-  content = [{translator: "google", translation: "hello"},
-             {translator: "microsoft", translation: "goodb"},
-             {translator: "ut", translation: "oouch"}]) {
+  content = [{translator: "google", translation: "Lorem ipsum dolor sit amet, consecteturadipiscing elit."},
+             {translator: "microsoft", translation: "Lorem dolor sit amet ipsum, consecteturadipiscing"},
+             {translator: "ut", translation: "Lorem ipsum dolor sit amet, adipiscingconsectetur elit."}]) {
 
   CleanTranslationAll();
 

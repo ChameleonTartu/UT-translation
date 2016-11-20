@@ -14,7 +14,9 @@
   color: #2e2722;
   font-size: 10pt;
   background: #ffffff;
-  border: 0.1mm solid #2e2722;
+  border-color: #2e2722;
+  border-style: solid;
+  border-width: 0.1mm;
   max-width: 100px;
 }
 
