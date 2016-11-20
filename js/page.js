@@ -53,6 +53,23 @@ function CreateTranslationRow(image_path, traslation_text) {
   return null;
 }
 
+function Swap(content, index1, index2) {
+  var temp = content[index1];
+  content[index1] = content[index2];
+  content[index2] = temp;
+}
+
+function RandomShuffle(content, num_swaps = 5) {
+  for(var num_swap = 0; num_swap < num_swaps; ++num_swap) {
+      var index1 = Math.floor(Math.random() * content.length),
+          index2 = Math.floor(Math.random() * content.length);
+    Swap(content, index1, index2);
+    console.log(index1, index2);
+  }
+  console.error(content);
+  return content;
+}
+
 function CreateTranslationTitle(translation_title) {
   CleanTransaltionTitle();
   $("#translation-title").text(translation_title);
@@ -63,9 +80,11 @@ function CreateTranslationTitle(translation_title) {
 
 function ShowTranslation(content = [{translator: "google", translation: "hello"},
                                     {translator: "google", translation: "goodb"},
-                                    {translator: "google", translation: "oouch"}], translation_title = "Palun vali kõige parim tõlge:") {
+                                    {translator: "google", translation: "oouch"}],
+                         translation_title = "Palun vali kõige parim tõlge:") {
   CleanTranslationAll();
   CreateTranslationTitle(translation_title);
+  content = RandomShuffle(content);
 
   for(var index in content) {
     var image_path = CreateImagePath(content[index].translator);
