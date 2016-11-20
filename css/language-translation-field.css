@@ -14,7 +14,9 @@ textarea {
   font-size: 10pt;
   color: #2e2722;
   resize: none;
-  border: #000000 solid 0.37px;
+  border-color: #000000;
+  border-style: solid;
+  border-width: 0.37px;
 }
 
 .dropdown {
