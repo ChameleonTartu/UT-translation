@@ -20,7 +20,7 @@ function CleanTransaltionTitle() {
 
 function CleanTranslationDivs() {
   $("#translation-choice").empty();
-  $("#translation-choice").remove(".space3percent");
+  $("#translation-choice").remove(".space1percent");
 }
 
 function CleanTranslationAll() {
@@ -46,7 +46,7 @@ function CreateTranslationRow(image_path, traslation_text) {
 
   // Add space
   var space_div = document.createElement('div');
-  $(space_div).addClass("space3percent");
+  $(space_div).addClass("space1percent");
   $("#translation-choice").append(space_div);
 
   return null;
