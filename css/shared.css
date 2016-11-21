@@ -31,6 +31,22 @@
   margin-top: 5%;
 }
 
+.space7percent {
+  margin-top: 7%;
+}
+
+.space15percent {
+    margin-top: 15%;
+}
+
+.space17percent {
+  margin-top: 17%;
+}
+
+.space20percent {
+  margin-top: 20%;
+}
+
 .icon-max-size {
   max-width: 40px;
   max-height: 40px;
