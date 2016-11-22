@@ -78,7 +78,9 @@ function ShowTranslation(content = [{translator: "google", translation: "Lorem i
                                     {translator: "google", translation: "Lorem ipsum dolor sit amet, adipiscingconsectetur elit."}],
                          translation_title = "Palun vali kõige parim tõlge:") {
   CleanTranslationAll();
+  CleanFooter();
   CreateTranslationTitle(translation_title);
+
   content = RandomShuffle(content);
 
   for(var index in content) {
@@ -86,6 +88,8 @@ function ShowTranslation(content = [{translator: "google", translation: "Lorem i
     console.log("image_path", image_path);
     CreateTranslationRow(image_path, content[index].translation);
   }
+
+  CreateFooter();
 };
 
 function ShowTranslatorsBasedOnTranslation(
@@ -94,10 +98,41 @@ function ShowTranslatorsBasedOnTranslation(
              {translator: "ut", translation: "Lorem ipsum dolor sit amet, adipiscingconsectetur elit."}]) {
 
   CleanTranslationAll();
+  CleanFooter();
 
   for(var index in content) {
     var image_path = CreateImagePath(content[index].translator);
     console.log("image_path", image_path);
     CreateTranslationRow(image_path, content[index].translation);
   }
+
+  CreateFooter();
 };
+
+
+function CreateFooter(about_url = "project_information.html",
+                      contacts_url = "contacts.html",
+                      about_text = "Projekti üldinfo",
+                      contacts_text = "Kontakt") {
+  var about_div = document.createElement('div'),
+      contacts_div = document.createElement('div'),
+      about_link = document.createElement('a'),
+      contacts_link = document.createElement('a');
+
+  $(about_link).attr("href", about_url);
+  $(about_link).text(about_text);
+  $(about_div).append(about_link);
+  $(about_div).addClass("hidden-xs col-sm-6 col-md-6 col-lg-6 text-right");
+
+  $(contacts_link).attr("href", contacts_url);
+  $(contacts_link).text(contacts_text);
+  $(contacts_div).append(contacts_link);
+  $(contacts_div).addClass("hidden-xs col-sm-6 col-md-6 col-lg-6 text-left");
+
+  $(".footer").append(about_div);
+  $(".footer").append(contacts_div);
+}
+
+function CleanFooter() {
+  $('.footer').empty();
+}

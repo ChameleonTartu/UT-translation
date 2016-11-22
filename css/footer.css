@@ -21,6 +21,7 @@
     background-color: #e73627;
     text-decoration: none;
     font-size: 8pt;
+    display: block;
 }
 
 a, a:visited, a:hover, a:link, a:active {
