@@ -12,6 +12,12 @@
   margin-top: 10%;
 }
 
+@media (max-width: 767px) {
+    .university-title {
+      font-size: 22pt;
+    }
+}
+
 @font-face {
     font-family: sourcesansprobolditalic;
     src: url('../fonts/SourceSansPro-BoldItalic.ttf');
@@ -21,12 +27,24 @@
   /*margin-top: 10%;*/
   font-family: 'sourcesansprobolditalic';
   font-size: 20pt;
+  font-weight: 700;
   font-style: italic;
   letter-spacing: -1px;
   text-align: justify;
   text-decoration: none;
   border-bottom: 0.5mm solid #e73627;
   display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .contact {
+    font-size: 17pt;
+    -webkit-transform: scale(0.9, 1); /* Safari and Chrome */
+    -moz-transform: scale(0.9, 1); /* Firefox */
+    -ms-transform: scale(0.9, 1); /* IE 9+ */
+    -o-transform: scale(0.9, 1); /* Opera */
+    transform: scale(0.9, 1);
+  }
 }
 
 
