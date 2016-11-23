@@ -6,7 +6,7 @@
 /* shared_fonts */
 textarea, .dropdown {
   font-family: 'sourcesansprolight';
-  font-weight: 300;
+   font-weight: 300;
   letter-spacing: 1px;
 }
 
@@ -22,6 +22,13 @@ textarea {
 .dropdown {
   font-size: 9.8pt;
   color: #e73627;
+}
+
+
+@media (max-width: 767px) {
+    .dropdown {
+      font-size: 10px;
+    }
 }
 
 .translation {
