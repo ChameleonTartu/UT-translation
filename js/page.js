@@ -136,3 +136,14 @@ function CreateFooter(about_url = "project_information.html",
 function CleanFooter() {
   $('.footer').empty();
 }
+
+function ShowMenu() {
+  if($('.main-block').hasClass("hidden-xs")) {
+    $('.main-block').removeClass("hidden-xs");
+    $('.menu-block').addClass("hidden-xs");
+  }
+  else {
+    $('.main-block').addClass("hidden-xs");
+    $('.menu-block').removeClass("hidden-xs");
+  }
+}
