@@ -39,7 +39,7 @@
         <div class="col-lg-8 col-lg-offset-2
                     col-md-8 col-md-offset-2
                     col-sm-8 col-sm-offset-2
-                    col-xs-9 col-offset-1
+                    col-xs-10 col-offset-1
                     text-center">
           <a href="index.html">
             <span class="university-title">
@@ -48,12 +48,41 @@
           </a>
         </div>
 
-        <!-- 3 stripes toggle navbar should be here! -->
-        <div class="visible-xs visible-sm col-xs-2">
+        <div class="visible-xs visible-sm col-xs-1">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <button class="navbar-toggle"
+                        data-toggle="collapse"
+                        onclick="ShowMenu()">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+            </div>
+          </nav>
         </div>
       </div>
 
+      <div class="row hidden-lg hidden-md hidden-sm hidden-xs menu-block">
+        <div class="text-center">
+          <div>
+            <a href="project_information.html"><span class="text">Projekti üldinfo</span></a>
+          </div>
+          <div>
+            <a href="contacts.html"><span class="text">Kontakt</span></a>
+          </div>
+          <div>
+            <a href="#"><span class="text">In English</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!--???-->
+      <div class="container-fluid main-block">
+
       <div class="space3percent"></div>
+      <!-- Hide -->
       <div class="row">
         <div class="col-lg-3 col-lg-offset-3
                     col-md-3 col-md-offset-3
@@ -95,6 +124,7 @@
         </div>
       </div>
 
+      <!-- Hide -->
       <div class="row">
         <div class="translation form-group
                     col-lg-6 col-lg-offset-3
@@ -150,24 +180,6 @@
         </div>
       </div>
 
-
-      <!--
-      <div class="row">
-        <div class="footer">
-          <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-right">
-            <a href="project_information.html">
-              Projekti üldinfo
-            </a>
-          </div>
-
-          <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-left">
-            <a href="contacts.html">
-              Kontakt
-            </a>
-          </div>
-        </div>
-      </div>
-      -->
       <div class="footer">
         <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-right">
           <a href="project_information.html">
@@ -183,6 +195,7 @@
       </div>
 
     </div>
+  </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
