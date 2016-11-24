@@ -63,9 +63,7 @@ function RandomShuffle(content, num_swaps = 5) {
       var index1 = Math.floor(Math.random() * content.length),
           index2 = Math.floor(Math.random() * content.length);
     Swap(content, index1, index2);
-    console.log(index1, index2);
   }
-  console.error(content);
   return content;
 }
 
@@ -85,7 +83,6 @@ function ShowTranslation(content = [{translator: "google", translation: "Lorem i
 
   for(var index in content) {
     var image_path = CreateImagePath(content[index].translator);
-    console.log("image_path", image_path);
     CreateTranslationRow(image_path, content[index].translation);
   }
 
@@ -102,7 +99,6 @@ function ShowTranslatorsBasedOnTranslation(
 
   for(var index in content) {
     var image_path = CreateImagePath(content[index].translator);
-    console.log("image_path", image_path);
     CreateTranslationRow(image_path, content[index].translation);
   }
 
