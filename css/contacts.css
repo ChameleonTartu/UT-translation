@@ -16,6 +16,9 @@
     .university-title {
       font-size: 22pt;
     }
+    .text-center {
+      text-align: left;
+    }
 }
 
 @font-face {

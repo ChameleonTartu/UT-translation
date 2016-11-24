@@ -17,7 +17,7 @@
 </head>
 
 <body class="cursor-custom">
-  <div class="container">
+  <div class="container page-wrap">
       <!--language_buttons-->
       <div class="row">
           <div id="languages" class="header hidden-xs">
@@ -35,11 +35,11 @@
       </div>
 
       <div class="space15percent"></div>
-      <div class="row">
+      <div>
         <div class="col-lg-8 col-lg-offset-2
                     col-md-8 col-md-offset-2
                     col-sm-8 col-sm-offset-2
-                    col-xs-10 col-offset-1
+                    col-xs-10 col-xs-offset-1
                     text-center">
           <a href="index.html">
             <span class="university-title">
@@ -48,7 +48,7 @@
           </a>
         </div>
 
-        <div class="visible-xs visible-sm col-xs-1">
+        <div class="visible-xs col-xs-1">
           <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <button class="navbar-toggle"
@@ -65,7 +65,7 @@
       </div>
 
       <div class="row hidden-lg hidden-md hidden-sm hidden-xs menu-block">
-        <div class="text-center">
+        <div class="text-center-xs">
           <div>
             <a href="project_information.html"><span class="text">Projekti üldinfo</span></a>
           </div>
@@ -78,11 +78,9 @@
         </div>
       </div>
 
-      <!--???-->
       <div class="container-fluid main-block">
 
       <div class="space3percent"></div>
-      <!-- Hide -->
       <div class="row">
         <div class="col-lg-3 col-lg-offset-3
                     col-md-3 col-md-offset-3
@@ -124,7 +122,6 @@
         </div>
       </div>
 
-      <!-- Hide -->
       <div class="row">
         <div class="translation form-group
                     col-lg-6 col-lg-offset-3
@@ -146,7 +143,7 @@
                           col-md-6 col-md-offset-3
                           col-sm-6 col-sm-offset-3
                           col-xs-6 col-xs-offset-3
-                          translate-btn text-center" onclick="ShowTranslation()">
+                          translate-btn text-center-xs" onclick="ShowTranslation()">
                             Tõlgi
               </div>
             </a>
@@ -180,6 +177,7 @@
         </div>
       </div>
 
+      <!--
       <div class="footer">
         <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-right">
           <a href="project_information.html">
@@ -193,15 +191,33 @@
           </a>
         </div>
       </div>
+    -->
 
     </div>
   </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/language.js"></script>
-    <script src="js/page.js"></script>
-    <!--<script src="js/test.js"></script>-->
+  <div class="container-fluid hidden-xs">
+    <div class="row">
+      <footer class="site-footer">
+          <div class="col-sm-6 col-md-6 col-lg-6 text-right">
+            <a href="project_information.html">
+              Projekti üldinfo
+            </a>
+          </div>
+
+          <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-left">
+            <a href="contacts.html">
+              Kontakt
+            </a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/page.js"></script>
 </body>
 
 </html>

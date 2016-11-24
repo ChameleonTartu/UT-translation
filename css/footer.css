@@ -4,24 +4,18 @@
 }
 
 /*footer fonts*/
-.footer {
+.site-footer {
   font-family: 'sourcesansproregular';
   font-size: 8pt;
   font-weight: 400;
   letter-spacing: 1px;
   color: #ffffff;
+  background-color: #e73627;
+  text-decoration: none;
 }
 
-.footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 0;
-    background-color: #e73627;
-    text-decoration: none;
-    font-size: 8pt;
-    display: block;
+.site-footer>a {
+  vertical-align: middle;
 }
 
 a, a:visited, a:hover, a:link, a:active {

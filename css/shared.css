@@ -76,3 +76,34 @@
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: #ffffff;
 }
+
+
+html, body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -30px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.page-wrap:after {
+  height: 30px;
+}
+
+.site-footer {
+  margin-top: 10px;
+}
+
+.site-footer  {
+  height: 20px;
+}
+
+.text-center-xs {
+  text-align: center;
+}
