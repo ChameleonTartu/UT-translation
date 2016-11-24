@@ -25,6 +25,10 @@
   })
 }) ();
 
+$('.dropdown').hover(function(){
+  $('.dropdown-toggle', this).trigger('click');
+});
+
 /* TODO Add function which regenerates languages choice translate_to based on the choice translate_from */
 /* TODO Function which stores all language pairs */
 /* TODO Function which generates response from API, dummy until back-end is done */
