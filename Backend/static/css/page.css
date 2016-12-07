@@ -1,0 +1,18 @@
+.footer, .header {
+  background-color: #e73627 !important;
+  color: white !important;
+  border: red !important;
+  font-family: SourceSansPro-BoldItalic !important;
+  src: url('fonts/SourceSansPro-BoldItalic.ttf');
+  font-size: 10pt !important;
+}
+
+h1 {
+  font-family: AbrilFatface !important;
+  font-size: 36pt !important;
+}
+
+.button {
+  border-color: #2e2722 !important;
+  /*border: 0.37px;*/
+}

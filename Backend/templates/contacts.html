@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="et">
+
+<head>
+    <title>Contacts</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <link href="{{url_for('static', filename='css/shared.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/language-buttons.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/contacts.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/footer.css')}}" rel="stylesheet">
+</head>
+
+<body class="cursor-custom">
+
+      <div class="container page-wrap">
+
+        <div class="row">
+            <div id="languages" class="header hidden-xs">
+              <a href="#">
+                <div class = "btn-sm language-btn language-left-btn">
+                  EST
+                </div>
+              </a>
+              <a href="#">
+                <div class = "btn-sm language-btn language-right-btn">
+                  ENG
+                </div>
+              </a>
+          </div>
+        </div>
+
+        <div class="space15percent"></div>
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2
+                      col-md-8 col-md-offset-2
+                      col-sm-8 col-sm-offset-2
+                      col-xs-9 col-xs-offset-1
+                      text-center">
+            <a href="/">
+              <span class="university-title">
+                Tartu Ülikooli masintõlge
+              </span>
+            </a>
+          </div>
+
+          <div class="visible-xs col-xs-1">
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <button class="navbar-toggle"
+                          data-toggle="collapse"
+                          onclick="ShowMenu()">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="row hidden-lg hidden-md hidden-sm hidden-xs menu-block">
+          <div class="text-center-xs">
+            <div>
+              <a href="about.html"><span class="text">Projekti üldinfo</span></a>
+            </div>
+            <div>
+              <a href="contacts.html"><span class="text">Kontakt</span></a>
+            </div>
+            <div>
+              <a href="#"><span class="text">In English</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row main-block">
+          <div class="space5percent"></div>
+          <div class="content">
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2
+                            col-md-8 col-md-offset-2
+                            col-sm-8 col-sm-offset-2
+                            col-xs-12">
+                  <span class="contact">Kontakt</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-8 col-lg-offset-2
+                            col-md-8 col-md-offset-2
+                            col-sm-8 col-sm-offset-2
+                            col-xs-12
+                            text">
+                  Projektijuht on Tartu Ülikooli Keeletehnoloogia vanemteadur <a href="#"><span class="general-info">Heiki-Jaan Kaalep</span></a>.
+          Küsimustele ja ettepanekutele vastavad Tartu Ülikooli Keeletehnoloogia dotsent
+          <a href="#"><span class="general-info">Mark Fišel</span></a> ja infotehnoloogia spetsialist <a href="#"><span class="general-info">Harri Kirik</span></a>.
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid hidden-xs">
+        <div class="row">
+          <footer class="site-footer">
+              <div class="col-sm-6 col-md-6 col-lg-6 text-right">
+                <a href="/about">
+                  Projekti üldinfo
+                </a>
+              </div>
+
+              <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 text-left">
+                <a href="/contacts">
+                  Kontakt
+                </a>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/page.js')}}"></script>
+</body>
+
+</html>
