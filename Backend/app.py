@@ -22,7 +22,7 @@ celery.conf.update(app.config)
 
 
 # TODO
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def main_page():
     source_text = u"Heakene küll, oleks see siis olnud Jimmy. Ühes Ameerika telekanalis on selline naljamees, Jimmy Fallon. Räägitakse, et on terane poiss. Tema sõnade peale oleks Trump ehk naernudki. On ju naljakas, kui koomik üliriigi liidrile head nõu annab."
 
