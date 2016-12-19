@@ -14,6 +14,7 @@ from db import insert
 import time
 
 app = Flask(__name__)
+
 app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
 app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 
@@ -69,4 +70,4 @@ def contacts_page():
 
 # TODO: remove debug mode in production
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, threaded=True)
