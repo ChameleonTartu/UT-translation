@@ -1,5 +1,5 @@
 function CreateImagePath(company) {
-  var image_path = "image/", extension = ".png";
+  var image_path = "static/image/", extension = ".png";
   if (company === "google") {
     return image_path + company + extension;
   }
