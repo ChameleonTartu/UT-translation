@@ -43,10 +43,14 @@ def main_page():
         # Insert Query in DB
         insert(source_text, translation_microsoft, translation_google, translation_ut)
 
-        return json.dumps({'status': 'OK',
-                           'google': translation_google,
-                           'microsoft': translation_microsoft,
-                           'ut': translation_ut})
+        return json.dumps({
+                            'status': 'OK',
+                            'translations': [
+                                {'translator': 'google', 'translation': translation_google},
+                                {'translator': 'microsoft', 'translation': translation_microsoft},
+                                {'translator': 'ut', 'translation': translation_ut}
+                            ]
+                          })
 
     print(request)
     return render_template('index.html')

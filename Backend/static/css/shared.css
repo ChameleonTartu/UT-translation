@@ -56,6 +56,10 @@
    cursor: url('/static/image/hand-pointer-icon.png'), auto;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .general-info {
   color: #e73627;
 }

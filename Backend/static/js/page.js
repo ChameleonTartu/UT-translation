@@ -14,7 +14,7 @@ function CreateImagePath(company) {
   }
 }
 
-function CleanTransaltionTitle() {
+function CleanTranslationTitle() {
   $("#translation-title").addClass("invisible");
 }
 
@@ -24,21 +24,20 @@ function CleanTranslationDivs() {
 }
 
 function CleanTranslationAll() {
-  CleanTransaltionTitle();
+  CleanTranslationTitle();
   CleanTranslationDivs();
 }
 
-function CreateTranslationRow(image_path, traslation_text) {
+function CreateTranslationRow(image_path, translation_text) {
   var translation_div = document.createElement('div'),
-      image_div = $(document.createElement('div')).addClass("wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2"),
-      text_div = $(document.createElement('div')).addClass("col-lg-10 col-md-10 col-sm-10 col-xs-10"),
+      image_div = $(document.createElement('div')).addClass("wrapper col-lg-2 col-md-2 col-sm-2 col-xs-2 pointer"),
+      text_div = $(document.createElement('div')).addClass("col-lg-10 col-md-10 col-sm-10 col-xs-10 translation-text pointer"),
       image = $(document.createElement('img')).addClass("img-responsive icon-max-size pull-right");
 
   // Add image + translation
   $(translation_div).addClass("row");
   $(image).attr("src", image_path);
-  $(image).attr("onclick", "ShowTranslatorsBasedOnTranslation()");
-  $(text_div).text(traslation_text);
+  $(text_div).text(translation_text);
   $(image).appendTo(image_div);
   $(translation_div).append(image_div);
   $(translation_div).append(text_div);
@@ -58,7 +57,7 @@ function Swap(content, index1, index2) {
   content[index2] = temp;
 }
 
-function RandomShuffle(content, num_swaps = 5) {
+function RandomShuffle(content, num_swaps = 10) {
   for(var num_swap = 0; num_swap < num_swaps; ++num_swap) {
       var index1 = Math.floor(Math.random() * content.length),
           index2 = Math.floor(Math.random() * content.length);
@@ -71,30 +70,37 @@ function CreateTranslationTitle(translation_title) {
   $("#translation-title").removeClass("invisible");
 }
 
+function FilterEmptyTranslations(content) {
+    var cleaned_content = [];
+    for(var sub_content in content) {
+        if(content[sub_content]['translation'] != "") {
+            cleaned_content.push(content[sub_content]);
+        }
+        console.log("i", sub_content);
+    }
 
-// TODO function is deprecated: rewrite or remove.
-function ShowTranslation(content = [{translator: "google", translation: "Lorem ipsum dolor sit amet, consecteturadipiscing elit."},
-                                    {translator: "google", translation: "Lorem dolor sit amet ipsum, consecteturadipiscing"},
-                                    {translator: "google", translation: "Lorem ipsum dolor sit amet, adipiscingconsectetur elit."}],
-                         translation_title = "Palun vali kõige parim tõlge:") {
+    return cleaned_content;
+}
+
+
+function ShowTranslation(content, translation_title = "Palun vali kõige parim tõlge:") {
   CleanTranslationAll();
   CleanFooter();
   CreateTranslationTitle(translation_title);
 
-  content = RandomShuffle(content);
+  content = FilterEmptyTranslations(RandomShuffle(content));
 
   for(var index in content) {
-    var image_path = CreateImagePath(content[index].translator);
+    var image_path = CreateImagePath('');
     CreateTranslationRow(image_path, content[index].translation);
   }
 
   CreateFooter();
+  console.log("ShowTranslation");
+  return content;
 };
 
-function ShowTranslatorsBasedOnTranslation(
-  content = [{translator: "google", translation: "Lorem ipsum dolor sit amet, consecteturadipiscing elit."},
-             {translator: "microsoft", translation: "Lorem dolor sit amet ipsum, consecteturadipiscing"},
-             {translator: "ut", translation: "Lorem ipsum dolor sit amet, adipiscingconsectetur elit."}]) {
+function ShowTranslatorsBasedOnTranslation(content) {
 
   CleanTranslationAll();
   CleanFooter();
@@ -105,7 +111,36 @@ function ShowTranslatorsBasedOnTranslation(
   }
 
   CreateFooter();
+  console.log("ShowTranslatorsBasedOnTranslation");
+
+  RemoveListeners();
 };
+
+function RemoveListeners() {
+  var elements = document.getElementsByClassName("pointer");
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].removeEventListener('click',
+                                 function() {
+                                    console.log("Inside event listener", content);
+                                    ShowTranslatorsBasedOnTranslation(content);
+                                 },
+                                 false);
+    }
+    console.log("Listeners removed");
+};
+
+function AddListeners() {
+  var elements = document.getElementsByClassName("pointer");
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click',
+                                 function() {
+                                    console.log("Inside event listener", content);
+                                    ShowTranslatorsBasedOnTranslation(content);
+                                 },
+                                 false);
+    }
+    console.log("Listeners removed");
+}
 
 
 function CreateFooter(about_url = "project_information.html",
@@ -154,19 +189,24 @@ $(function() {
         var source_text = $('textarea').val();
 
         var param = {};
-        param['source_text'] = "Tere";//source_text;
+        param['source_text'] = "Tere";//source_text
         param['translate_from'] = "et";//translate_from;
         param['translate_to'] = "en";//translate_to;
 
         console.log("data", JSON.stringify(param, null, '\t'));
 
         $.ajax({
-            url: 'http://localhost:5000/',
+            url: '/',
             data: JSON.stringify(param, null, '\t'),
             type: 'POST',
             contentType: 'application/json;charset=UTF-8',
             success: function(response) {
+                translations = JSON.parse(response)["translations"];
                 console.log("response", response);
+                content = ShowTranslation(content=translations);
+
+                // Add listeners for future events
+                AddListeners();
             },
             error: function(error) {
                 console.log("error", error);

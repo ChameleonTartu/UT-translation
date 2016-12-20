@@ -57,7 +57,7 @@
 }
 
 /*Text fonts*/
-.text {
+.text, .translation-text {
   font-family: 'sourcesansprolight';
   font-weight: 300;
   letter-spacing: 0.1px;
