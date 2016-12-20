@@ -53,7 +53,7 @@
 }
 
 .cursor-custom {
-   cursor: url(image/hand-pointer-icon.png), auto;
+   cursor: url('/static/image/hand-pointer-icon.png'), auto;
 }
 
 .general-info {

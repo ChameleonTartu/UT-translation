@@ -62,6 +62,10 @@ textarea {
   color: #e73627;
 }
 
+.dropdown-menu {
+    margin-top: -1px;
+}
+
 .dropdown-menu>li>a {
     background-color: #ffffff;
     text-decoration: none;

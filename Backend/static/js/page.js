@@ -1,5 +1,5 @@
 function CreateImagePath(company) {
-  var image_path = "static/image/", extension = ".png";
+  var image_path = "/static/image/", extension = ".png";
   if (company === "google") {
     return image_path + company + extension;
   }
@@ -71,6 +71,8 @@ function CreateTranslationTitle(translation_title) {
   $("#translation-title").removeClass("invisible");
 }
 
+
+// TODO function is deprecated: rewrite or remove.
 function ShowTranslation(content = [{translator: "google", translation: "Lorem ipsum dolor sit amet, consecteturadipiscing elit."},
                                     {translator: "google", translation: "Lorem dolor sit amet ipsum, consecteturadipiscing"},
                                     {translator: "google", translation: "Lorem ipsum dolor sit amet, adipiscingconsectetur elit."}],
@@ -143,3 +145,32 @@ function ShowMenu() {
     $('.menu-block').removeClass("hidden-xs");
   }
 }
+
+
+$(function() {
+    $('.translate-btn').click(function() {
+        var translate_from = $('.translate-from').attr('name');
+        var translate_to = $('.translate-to').attr('name');
+        var source_text = $('textarea').val();
+
+        var param = {};
+        param['source_text'] = "Tere";//source_text;
+        param['translate_from'] = "et";//translate_from;
+        param['translate_to'] = "en";//translate_to;
+
+        console.log("data", JSON.stringify(param, null, '\t'));
+
+        $.ajax({
+            url: 'http://localhost:5000/',
+            data: JSON.stringify(param, null, '\t'),
+            type: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            success: function(response) {
+                console.log("response", response);
+            },
+            error: function(error) {
+                console.log("error", error);
+            }
+        });
+    });
+});
