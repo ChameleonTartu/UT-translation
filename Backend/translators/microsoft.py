@@ -5,7 +5,7 @@ from microsofttranslator import Translator
 import time
 
 
-def save_microsoft_translation(source_text, client_id, client_secret, translate_from='et', translate_to='en'):
+def save_microsoft_translation(queue, source_text, client_id, client_secret, translate_from='et', translate_to='en'):
     translation = ''
     try:
         begin = time.time()
@@ -20,7 +20,8 @@ def save_microsoft_translation(source_text, client_id, client_secret, translate_
     except Exception as e:
         print("Microsoft failed!", e)
 
-    return translation
+    queue.put({'translation_microsoft': translation})
+    return None
 
 
 def microsoft_translation(text, client_id, client_secret, translate_from='et', translate_to='en'):

@@ -5,7 +5,7 @@ import goslate
 import time
 
 
-def save_google_translation(source_text, client_id, client_secret, translate_from='et', translate_to='en'):
+def save_google_translation(queue, source_text, client_id, client_secret, translate_from='et', translate_to='en'):
     translation = ''
 
     try:
@@ -19,7 +19,8 @@ def save_google_translation(source_text, client_id, client_secret, translate_fro
     except Exception as e:
         print("Google failed!", e)
 
-    return translation
+    queue.put({'translation_google': translation})
+    return None
 
 
 def google_translation(text, translate_from='et', translate_to='en'):

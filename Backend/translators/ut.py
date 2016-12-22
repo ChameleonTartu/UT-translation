@@ -1,13 +1,14 @@
 #!/usr/bin/python
 #  -*- coding: utf-8 -*-
 
-from celery import task
 
-#@task
-def ut_translation(text, translate_from='et', translate_to='en'):
+def ut_translation(queue, text, translate_from='et', translate_to='en'):
     # translator = Translator(client_id, client_secret)
     # translation = translator.translate(text, from_lang=translate_from, to_lang=translate_to)
-    return text
+
+    translation = ""
+    queue.put({'translation_ut': translation})
+    return None
 
 
 def main():
