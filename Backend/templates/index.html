@@ -3,7 +3,11 @@
 
 <head>
     <link rel="shortcut icon" href="http://www.ut.ee/sites/all/themes/ut_main/favicon.ico" type="image/vnd.microsoft.icon">
-    <title>Uni. Tartu Machine Translation</title>
+    <title>
+        {% block head %}
+            Uni. Tartu Machine Translation
+        {% endblock %}
+    </title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,6 +19,7 @@
     <link href="{{url_for('static', filename='css/translate-button.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/contacts.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/footer.css')}}" rel="stylesheet">
+
 </head>
 
 <body class="cursor-custom">
@@ -79,8 +84,10 @@
         </div>
       </div>
 
+
       <div class="container-fluid main-block">
 
+      {% block content %}
       <div class="space3percent"></div>
       <div class="row">
         <div class="col-lg-3 col-lg-offset-3
@@ -177,8 +184,11 @@
           </div>
         </div>
       </div>
-    </div>
+      {% endblock %}
+
   </div>
+  </div>
+
 
   <div class="container-fluid hidden-xs">
     <div class="row">
@@ -197,6 +207,8 @@
       </footer>
     </div>
   </div>
+
+
 
   <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
   <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
