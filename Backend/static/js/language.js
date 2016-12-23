@@ -1,47 +1,30 @@
-/* It is a bit trickier than I have thought it is */
 
-(function() {
-  //"use strict"
-
-  console.log("change on new elements!");
-
-  var $chooseLanguage = $("#language-translate-from");
-
-  $("#language-translate-from-list li a").on("click", function() {
-    var $language = $(this).text();
-    var $name = $(this).attr('name');
-    var $caret = '<span class="caret dropdown-arrow"></span>';
-    $chooseLanguage.text($language + ' ');
-    $chooseLanguage.append($caret);
-    console.error("name", $name);
-    $chooseLanguage.attr('name', $name);
-  })
-}) ();
-
-
-(function() {
-  "use strict"
-
-  var $chooseLanguage = $("#language-translate-to");
-
-  $("#language-translate-to-list li a").on("click", function() {
-    var $language = $(this).text();
-    var $caret = '<span class="caret dropdown-arrow"></span>';
-    $chooseLanguage.text($language + ' ');
-    $chooseLanguage.append($caret);
-  })
-}) ();
+function ReCreateMenu(chooseLanguage, current_element) {
+    var caret = '<span class="caret dropdown-arrow"></span>';
+    var language = current_element.text();
+    var name = current_element.attr('name');
+    chooseLanguage.text(language + ' ');
+    chooseLanguage.append(caret);
+    chooseLanguage.attr('name', name);
+}
 
 
 (function() {
     $('.dropdown.pull-left').mouseenter(function() {
         $('.translate-from').attr('area-expanded', true);
         $('.dropdown.pull-left').addClass('open');
+        $('div #language-translate-from-list li a.language').on('click', function() {
+            ReCreateMenu($('#language-translate-from'), $(this));
+            GenerateTranslateTo($(this).attr('name'), language_pairs, language_culture_names_to_estonian);
+        });
     });
 
     $('.dropdown.pull-right').mouseenter(function() {
         $('.translate-to').attr('area-expanded', true);
         $('.dropdown.pull-right').addClass('open');
+        $('div #language-translate-to-list li a.language').on('click', function() {
+            ReCreateMenu($('#language-translate-to'), $(this));
+        });
     });
 
 
@@ -78,10 +61,49 @@ function GenerateTranslateFromList(language_pairs, language_culture_names_to_est
         a.setAttribute('href', '#');
         a.setAttribute('tabindex', '-1');
         a.setAttribute('name', language);
+        a.setAttribute('class', 'language');
         a.innerHTML = language_culture_names_to_estonian[language];
         li.append(a);
         $('#language-translate-from-list').append(li)
     }
+
+    GenerateTranslateTo('et', language_pairs, language_culture_names_to_estonian);
+
+    return null;
+}
+
+function GenerateTranslateTo(language_translate_from, language_pairs, language_culture_names_to_estonian) {
+    $('#language-translate-to-list').empty();
+
+    var languages = new Set();
+    for(var index in language_pairs) {
+        if(Object.keys(language_pairs[index])[0] === language_translate_from) {
+            languages.add(language_pairs[index][Object.keys(language_pairs[index])[0]]);
+        }
+    }
+
+    var chooseLanguage = $('#language-translate-to');
+    var caret = '<span class="caret dropdown-arrow"></span>';
+    var name = languages.keys().next().value;
+    var language_ = language_culture_names_to_estonian[name];
+    chooseLanguage.text(language_ + ' ');
+    chooseLanguage.append(caret);
+    chooseLanguage.attr('name', name);
+
+    for(var language of languages.keys()) {
+        var li = document.createElement('li'),
+            a = document.createElement('a');
+
+        a.setAttribute('href', '#');
+        a.setAttribute('tabindex', '-1');
+        a.setAttribute('name', language);
+        a.setAttribute('class', 'language');
+        a.innerHTML = language_culture_names_to_estonian[language];
+        li.append(a);
+        $('#language-translate-to-list').append(li)
+    }
+
+    console.log("GenerateTranslateTo test", languages);
 
     return null;
 }

@@ -19,7 +19,6 @@
     <link href="{{url_for('static', filename='css/translate-button.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/contacts.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/footer.css')}}" rel="stylesheet">
-
 </head>
 
 <body class="cursor-custom">
@@ -102,8 +101,7 @@
                 Eesti
                 <span class="caret dropdown-arrow"></span></button>
               <ul class="dropdown-menu" id="language-translate-from-list">
-                <li><a href="#" tabindex="-1" name="et">Eesti</a></li>
-                <li><a href="#" tabindex="-1" name="en">Inglise</a></li>
+
               </ul>
 
             </div>
@@ -122,8 +120,7 @@
                       <span class="caret dropdown-arrow"></span>
                     </button>
                     <ul class="dropdown-menu" id="language-translate-to-list">
-                      <li><a href="#" tabindex="-1" name="et">Eesti</a></li>
-                      <li><a href="#" tabindex="-1" name="en">Inglise</a></li>
+                      <!--<li><a href="#" tabindex="-1" name="en" class="language">Inglise</a></li>-->
                     </ul>
 
                   </div>
@@ -214,6 +211,19 @@
   <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
   <script src="{{url_for('static', filename='js/language.js')}}"></script>
   <script src="{{url_for('static', filename='js/page.js')}}"></script>
+
+  {% block languages %}
+  <script>
+    var language_pairs = {{ available_language_pairs|tojson }};
+    var language_culture_names_to_estonian = {{ language_culture_names_to_estonian|tojson }};
+
+
+    $(function() {
+        GenerateTranslateFromList(language_pairs, language_culture_names_to_estonian);
+    });
+  </script>
+  {% endblock %}
+
 </body>
 
 </html>

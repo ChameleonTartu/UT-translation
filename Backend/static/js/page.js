@@ -181,7 +181,6 @@ function ShowMenu() {
   }
 }
 
-
 $(function() {
     $('.translate-btn').click(function() {
         var translate_from = $('.translate-from').attr('name');
@@ -189,9 +188,9 @@ $(function() {
         var source_text = $('textarea').val();
 
         var param = {};
-        param['source_text'] = "Tere";//source_text
-        param['translate_from'] = "et";//translate_from;
-        param['translate_to'] = "en";//translate_to;
+        param['source_text'] = source_text;
+        param['translate_from'] = translate_from;
+        param['translate_to'] = translate_to;
 
         console.log("data", JSON.stringify(param, null, '\t'));
 
@@ -214,3 +213,4 @@ $(function() {
         });
     });
 });
+

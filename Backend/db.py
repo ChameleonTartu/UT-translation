@@ -1,5 +1,7 @@
-import sqlite3
+#!/usr/bin/python
+#  -*- coding: utf-8 -*-
 
+import sqlite3
 
 def insert(text, translation_microsoft, translation_google, translation_ut, choice=0):
     db_connection = sqlite3.connect('translation.db')
@@ -10,4 +12,3 @@ def insert(text, translation_microsoft, translation_google, translation_ut, choi
     db_connection.commit()
     db_connection.close()
     return None
-

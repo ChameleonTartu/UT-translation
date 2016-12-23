@@ -2,16 +2,20 @@
 #  -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, request
-
-# Translators
-
-from help.parallel_translation_requests import get_translations
-from db import insert
-
 import json
 
-app = Flask(__name__)
+# Translators
+from help.parallel_translation_requests import get_translations
 
+# SQLite3 DB
+from db import insert
+
+from language.available_languages import get_available_language_culture_name_pairs, language_culture_names_to_estonian
+
+app = Flask(__name__)
+app.jinja_env.globals['available_language_pairs'] = get_available_language_culture_name_pairs()
+app.jinja_env.globals['language_culture_names_to_estonian'] = \
+    language_culture_names_to_estonian(get_available_language_culture_name_pairs())
 
 # TODO
 @app.route('/', methods=['GET', 'POST'])
