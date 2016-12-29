@@ -17,10 +17,11 @@ app.jinja_env.globals['available_language_pairs'] = get_available_language_cultu
 app.jinja_env.globals['language_culture_names_to_estonian'] = \
     language_culture_names_to_estonian(get_available_language_culture_name_pairs())
 
+
 # TODO
 @app.route('/', methods=['GET', 'POST'])
 def main_page():
-    if request.method == 'POST':
+    if request.method == 'POST' and 'source_text' in request.json:
         language_translate_from = request.json['translate_from']
         language_translate_to = request.json['translate_to']
         source_text = request.json['source_text']
@@ -44,6 +45,11 @@ def main_page():
                 {'translator': 'ut', 'translation': translation_ut}
             ]
         })
+
+    elif request.method == 'POST':
+        print(request.json)
+
+        return "OK", 201
 
     print(request)
     return render_template('index.html')

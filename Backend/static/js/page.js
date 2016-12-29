@@ -135,13 +135,58 @@ function AddListeners() {
     elements[i].addEventListener('click',
                                  function() {
                                     console.log("Inside event listener", content);
+
+                                    var position = FindChosenTranslatorPosition(this);
+
+                                    console.log("position", position);
+                                    console.log("corresponding content", content[position].translator);
+
                                     ShowTranslatorsBasedOnTranslation(content);
+
+                                    SaveBestTranslator(content, position);
                                  },
                                  false);
     }
     console.log("Listeners removed");
 }
 
+
+function FindChosenTranslatorPosition(source) {
+    var clicked_row = $(source).parent(),
+        rows = $('#translation-choice div.row'),
+        position = -1;
+
+    $.each(rows, function(index, row){
+        if (clicked_row.is(row)) {
+            position = index;
+        }
+    });
+    return position;
+}
+
+function SaveBestTranslator(content, position) {
+    var param = {}
+    for (var index in content) {
+        param[content[index].translator] = content[index].translation
+    }
+
+    var best_translator = content[position].translator;
+    param['best_translator'] = best_translator
+
+    console.log("param", param);
+    $.ajax({
+        url: '/',
+        data: JSON.stringify(param, null, '\t'),
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        success: function(response) {
+            console.log("response", response);
+        },
+        error: function(error) {
+            console.log("error", error);
+        }
+    });
+}
 
 function CreateFooter(about_url = "project_information.html",
                       contacts_url = "contacts.html",
@@ -213,4 +258,3 @@ $(function() {
         });
     });
 });
-
