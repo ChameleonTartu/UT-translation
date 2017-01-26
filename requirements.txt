@@ -1,0 +1,8 @@
+Flask==0.11.1
+goslate==1.5.1
+Jinja2==2.8
+json-rpc==1.10.3
+microsofttranslator==0.8
+mstranslator==0.2.6
+gunicorn==19.6.0
+py-googletrans==1.2
