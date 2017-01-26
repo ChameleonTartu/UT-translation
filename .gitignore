@@ -1,0 +1,7 @@
+*.db
+*.pyc
+client_secrets.json
+.idea/*
+/Backend/.idea/*
+/__pycache__/*
+/*/__pycache__/*

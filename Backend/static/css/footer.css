@@ -1,0 +1,24 @@
+@font-face {
+    font-family: sourcesansproregular;
+    src: url('../fonts/SourceSansPro-Regular.ttf');
+}
+
+/*footer fonts*/
+.site-footer {
+  font-family: 'sourcesansproregular';
+  font-size: 8pt;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background-color: #e73627;
+  text-decoration: none;
+}
+
+.site-footer>a {
+  vertical-align: middle;
+}
+
+a, a:visited, a:hover, a:link, a:active {
+  color: #FFFFFF;
+  text-decoration: none;
+}
