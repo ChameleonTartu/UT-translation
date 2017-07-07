@@ -12,7 +12,7 @@ app_default_language = 'et'
 
 from parallel_translation.parallel_translation_requests import get_translations
 from language.available_languages import get_available_language_culture_name_dicts, culture_names
-from translators.ut import save_ut_translation
+from translators.ut import get_ut_translation_object
 from werkzeug.exceptions import BadRequestKeyError
 
 
@@ -68,7 +68,6 @@ def play():
     translation_google = ''
     translation_tilde = ''
     translation_ut = ''
-    # translation_microsoft = ''
     start_translation_time = time.time()
     try:
         language_translate_from = request_args['from']
@@ -80,7 +79,6 @@ def play():
         translation_google = translations['translation_google']
         translation_tilde = translations['translation_tilde']
         translation_ut = translations['translation_ut']
-        # translation_microsoft = translations['translation_microsoft']
 
         print {"from": language_translate_from,
                "to": language_translate_to,
@@ -89,7 +87,6 @@ def play():
         print {"google": translation_google,
                "tilde": translation_tilde,
                "ut": translation_ut}
-        # "microsoft": translation_microsoft,
 
     except BadRequestKeyError as e:
         print "BadRequestKeyError occurred: ", e.message
@@ -108,8 +105,8 @@ def play():
             {'translator': 'google', 'translation': translation_google},
             {'translator': 'tilde', 'translation': translation_tilde},
             {'translator': 'ut', 'translation': translation_ut}
-            # {'translator': 'microsoft', 'translation': translation_microsoft}
-        ]
+        ],
+        'source': request_args['q']
     })
 
 
@@ -120,7 +117,7 @@ def translate():
 
     print "Translate request arguments :", request_args
 
-    translation_ut = ''
+    ut_translation_object = {}
     try:
         language_translate_from = request_args['from']
         language_translate_to = request_args['to']
@@ -129,11 +126,11 @@ def translate():
         print {"from": language_translate_from,
                "to": language_translate_to,
                "source_text": source_text}
-        translation_ut = save_ut_translation(source_text, language_translate_from, language_translate_to)
+        ut_translation_object = get_ut_translation_object(source_text, language_translate_from, language_translate_to)
     except BadRequestKeyError as e:
         print "BadRequestKeyError occurred: ", e.message
 
-    if translation_ut == '':
+    if ut_translation_object == {}:
         return json.dumps({
             'error': True
         })
@@ -141,8 +138,11 @@ def translate():
     return json.dumps({
         'success': True,
         'translations': [
-            {'translator': 'ut', 'translation': translation_ut}
-        ]
+            {'translator': 'ut', 'translation': ut_translation_object["tgt"]}
+        ],
+        'alignweights': ut_translation_object["alignweights"],
+        'src': ut_translation_object["src"],
+        'rawTgt': ut_translation_object["rawTgt"]
     })
 
 

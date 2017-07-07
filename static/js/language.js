@@ -1,3 +1,5 @@
+/*TODO Rewrite in more modular*/
+
 
 function ReCreateMenu(chooseLanguage, current_element) {
   //console.log("ReCreateMenu");

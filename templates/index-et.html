@@ -12,41 +12,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
-
     <link href="{{url_for('static', filename='css/language-translation-field.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/shared.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/language-buttons.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/translate-button.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/contacts.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/footer.css')}}" rel="stylesheet">
-	 <meta property="og:title" content="Tartu Ülikooli neuromasintõlge" />
-	 <meta property="og:type" content="website" />
-	 <meta property="og:url" content="http://www.neurotolge.ee" />
-	 <meta property="og:image" content="/static/image/nmtpic.png" />
-	 <meta property="og:description" content="Vaata meie eesti-inglise-eesti neuromasintõlke demot! Valmistatud Tartu Ülikooli arvutiteaduse instituudi keeletehnoloogia uurimisrühmas. Proovi ka 'Mängi' nupu!" />
 
-<!-- Hotjar Tracking Code for http://neurotolge.ee/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:501955,hjsv:5};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-<!-- Google analytics -->
+    <meta property="og:title" content="Tartu Ülikooli neuromasintõlge" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.neurotolge.ee" />
+    <meta property="og:image" content="/static/image/nmtpic.png" />
+    <meta property="og:description" content="Vaata meie eesti-inglise-eesti neuromasintõlke demot! Valmistatud Tartu Ülikooli arvutiteaduse instituudi keeletehnoloogia uurimisrühmas. Proovi ka 'Mängi' nupu!" />
+    
+    <!-- Google analytics -->
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-9283980-8', 'auto');
-	  ga('send', 'pageview');
-
+	    ga('create', 'UA-9283980-8', 'auto');
+	    ga('send', 'pageview');
 	</script>
 
 </head>
@@ -112,7 +99,7 @@
                     <a href="/about/et"><span class="text">Mis see on?</span></a>
                 </div>
                 <div class="text-center-force">
-                    <a href="/error/et"><span class="text">Paneb puusse!!11!1ÜKS</span></a>
+                    <a href="/error/et"><span class="text">Paneb puusse!!!</span></a>
                 </div>
                 <div class="text-center-force">
                     <a href="/en"><span class="text">In English</span></a>
@@ -286,7 +273,7 @@
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
                     <a href="/error/et">
-                        Paneb puusse!
+                        Paneb puusse!!!
                     </a>
                 </div>
             </footer>
@@ -296,11 +283,13 @@
     <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
     <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script src="{{url_for('static', filename='js/language.js')}}"></script>
-    <script src="{{url_for('static', filename='js/page.js')}}"></script>
+    <script src="{{url_for('static', filename='js/translations_interface.js')}}"></script>
+    <script src="{{url_for('static', filename='js/mobile_toggle_menu.js')}}"></script>
 
     {% block languages %}
 
     <script>
+        // Dropdown menu generation
         var language_pairs = {{ available_language_pairs|tojson }};
         var language_culture_names = {{ language_culture_names_to_estonian|tojson }};
 
