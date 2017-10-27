@@ -22,7 +22,6 @@ function PageRenderer() {
 
     // Header
     function drawHeader(content) {
-        console.log("drawHeader", content);
         if (content === undefined) {
             return;
         }
@@ -101,6 +100,7 @@ function PlayModeRenderer() {
     };
 }
 
+// TODO: Implement!
 function TranslateModeRenderer() {
     var pageRenderer = new PageRenderer();
 
@@ -365,7 +365,6 @@ function UserInterfaceHandler(parameters) {
     }
 
     function removeListeners() {
-        console.log("removeListeners");
         var elements = document.getElementsByClassName("pointer");
         for (var i = 0; i < elements.length; i++) {
             elements[i].removeEventListener('click',
@@ -377,7 +376,6 @@ function UserInterfaceHandler(parameters) {
 
     function addListeners(content) {
         var elements = document.getElementsByClassName("pointer");
-        console.log("addListeners");
 
         for (var i = 0; i < elements.length; i++) {
             elements[i].addEventListener('click',
@@ -494,13 +492,11 @@ function UserInterfaceHandler(parameters) {
                         var content = renderer.renderTranslateMode();
                         pageRenderer.loader.erase();
 
-                        console.log("/translate", response_object);
-                        var translationModeRenderer = new TranslateModeRenderer();
+                        var translationModeRenderer = new PlayModeRenderer();
                         translationModeRenderer.page.draw(content);
                     }
                 },
                 error: function (error) {
-                    // TODO Warning for users that translation is failed
                     console.warn("We are sorry. The application error has occurred.");
                     pageRenderer.loader.erase();
                 }

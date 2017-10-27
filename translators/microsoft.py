@@ -2,11 +2,11 @@
 #  -*- encoding: utf-8 -*-
 
 
-from microsofttranslator import Translator
+# from microsofttranslator import Translator
 import time
 import datetime
 
-
+# TODO: Refactor as Tilde, Google and UT translators
 def save_microsoft_translation(queue, source_text, client_id, client_secret, translate_from='et', translate_to='en'):
     translation = ''
 
@@ -34,6 +34,9 @@ def save_microsoft_translation(queue, source_text, client_id, client_secret, tra
 
 
 def microsoft_translation(text, client_id, client_secret, translate_from='et', translate_to='en'):
-    translator = Translator(client_id, client_secret)
-    translation = translator.translate(text, from_lang=translate_from, to_lang=translate_to)
+    translation = ""
+    # NOTE: Integration with Microsoft translator
+    # translator = Translator(client_id, client_secret)
+    # translation = translator.translate(text, from_lang=translate_from, to_lang=translate_to)
+    #
     return translation

@@ -4,55 +4,50 @@
 
 import time
 import datetime
-import requests
-import json
+from abstract_translator import AbstractTranslator
 
 
-def ut_translation(queue, source_text, translate_from='et', translate_to='en'):
-    translation = save_ut_translation(source_text, translate_from, translate_to)
+class UT(AbstractTranslator):
+    def __init__(self, source_text, translate_from, translate_to, queue):
+        AbstractTranslator.__init__(self, source_text, translate_from, translate_to, queue)
+        self.translation_object = {}
 
-    queue.put({'translation_ut': translation})
-    return
+    def _add_to_queue(self):
+        self.queue.put({'translation_ut': self.translation})
+        return
 
-
-# TODO Rename to safe
-def save_ut_translation(source_text, translate_from='et', translate_to='en'):
-    timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S:%f')
-    print("timestamp/ut")
-    print(timestamp)
-    translation_time_begin = time.time()
-    try:
-        # INFO: Integration with University of Tartu translator's API
-        # INFO: Put your integration here
-
-
-
-        if source_text[len(source_text) - 1] != '.' and \
-           len(translation) > 0 and \
-           translation[len(translation) - 1] == '.':
-            translation = translation[:- 1]
-    except Exception as e:
-        translation = ''
-        print("ut failed!", e)
-
-    translation_time_end = time.time()
-    print("ut/time : ", translation_time_end - translation_time_begin)
-    return translation
-
-
-def get_ut_translation_object(source_text, translate_from, translate_to):
-    timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S:%f')
-    print("timestamp/ut")
-    print(timestamp)
-    translation_time_begin = time.time()
-    try:
+    def _external_api_integration(self):
         # INFO: Integration with University of Tartu translator's API
 
 
-    except Exception as e:
-        ut_translation_object = {}
-        print("ut failed!", e)
 
-    translation_time_end = time.time()
-    print("ut/time : ", translation_time_end - translation_time_begin)
-    return ut_translation_object
+
+
+
+        return
+
+    def translate(self):
+        # TODO: Refactor logging!
+        timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S:%f')
+        print("timestamp/ut")
+        print(timestamp)
+        translation_time_begin = time.time()
+
+        try:
+            self._external_api_integration()
+        except Exception as e:
+            print("ut failed!", e)
+
+        translation_time_end = time.time()
+        print("ut/time : ", translation_time_end - translation_time_begin)
+
+        self._add_to_queue()
+        return
+
+    def get_translation_object(self):
+        try:
+            self._external_api_integration()
+        except Exception as e:
+            print e.message
+
+        return self.translation_object

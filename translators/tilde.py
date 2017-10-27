@@ -4,37 +4,41 @@
 
 import time
 import datetime
-import requests
+from abstract_translator import AbstractTranslator
 
 
-def tilde_translation(queue, source_text, translate_from='et', translate_to='en'):
-    translation = save_tilde_translation(source_text, translate_from, translate_to)
+class Tilde(AbstractTranslator):
+    class ValidationError(Exception):
+        def __init__(self, message, errors):
+            Exception.__init__(self, message)
+            self.errors = errors
 
-    queue.put({'translation_tilde': translation})
-    return
+    def _add_to_queue(self):
+        self.queue.put({'translation_tilde': self.translation})
+        return
 
-
-# TODO Temporary class for production
-class ValidationError(Exception):
-    def __init__(self, message, errors):
-        super(ValidationError, self).__init__(message)
-        self.errors = errors
-
-
-# TODO Rename
-def save_tilde_translation(source_text, translate_from='et', translate_to='en'):
-    timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S:%f')
-    print("timestamp/tilde")
-    print(timestamp)
-    translation_time_begin = time.time()
-    translation = ''
-    try:
+    def _external_api_integration(self):
         # INFO: Integration with Tilde translator's API
-        # INFO: Put your integration here
 
-    except Exception as e:
-        print("tilde failed!", e)
 
-    translation_time_end = time.time()
-    print("tilde/time : ", translation_time_end - translation_time_begin)
-    return translation
+
+
+        return
+
+    def translate(self):
+        # TODO: Refactor logging
+        timestamp = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S:%f')
+        print("timestamp/tilde")
+        print(timestamp)
+        translation_time_begin = time.time()
+
+        try:
+            self._external_api_integration()
+        except Exception as e:
+            print("tilde failed!", e)
+
+        translation_time_end = time.time()
+        print("tilde/time : ", translation_time_end - translation_time_begin)
+
+        self._add_to_queue()
+        return
