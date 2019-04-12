@@ -63,7 +63,7 @@ def main_page(default_language=app_default_language):
 @app.route("/play", methods=['GET'])
 def play():
     request_args = request.args
-    print "Play request arguments :", request_args
+    print("Play request arguments :", request_args)
 
     translation_google = ''
     translation_tilde = ''
@@ -80,16 +80,16 @@ def play():
         translation_tilde = translations['translation_tilde']
         translation_ut = translations['translation_ut']
 
-        print {"from": language_translate_from,
+        print({"from": language_translate_from,
                "to": language_translate_to,
-               "source_text": source_text}
+               "source_text": source_text})
 
-        print {"google": translation_google,
+        print({"google": translation_google,
                "tilde": translation_tilde,
-               "ut": translation_ut}
+               "ut": translation_ut})
 
     except BadRequestKeyError as e:
-        print "BadRequestKeyError occurred: ", e.message
+        print("BadRequestKeyError occurred: ", e.message)
 
     end_translation_time = time.time()
     print("Total translation time : ", end_translation_time - start_translation_time)
@@ -121,15 +121,15 @@ def translate():
         language_translate_to = request_args['to']
         source_text = request_args['q']
 
-        print {"from": language_translate_from,
+        print({"from": language_translate_from,
                "to": language_translate_to,
-               "source_text": source_text}
+               "source_text": source_text})
         ut = UT(source_text, language_translate_from, language_translate_to)
         ut_translation = ut.get_translation()
     except BadRequestKeyError as e:
-        print "BadRequestKeyError occurred: ", e.message
+        print("BadRequestKeyError occurred: ", e.message)
 
-    print "UT translation", ut_translation
+    print("UT translation", ut_translation)
 
     if ut_translation == "":
         return json.dumps({
