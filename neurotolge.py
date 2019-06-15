@@ -8,7 +8,7 @@ import time
 
 app = Flask(__name__)
 app.secret_key = 'neurotolge_tartu'
-app_default_language = 'et'
+app_default_language = 'en'
 
 from parallel_translation.parallel_translation_requests import get_translations
 from language.available_languages import get_available_language_culture_name_dicts, culture_names
@@ -68,6 +68,7 @@ def play():
     translation_google = ''
     translation_tilde = ''
     translation_ut = ''
+    translation_yandex = ''
     start_translation_time = time.time()
     try:
         language_translate_from = request_args['from']
@@ -79,6 +80,7 @@ def play():
         translation_google = translations['translation_google']
         translation_tilde = translations['translation_tilde']
         translation_ut = translations['translation_ut']
+        translation_yandex = translations['translation_yandex']
 
         print({"from": language_translate_from,
                "to": language_translate_to,
@@ -94,7 +96,7 @@ def play():
     end_translation_time = time.time()
     print("Total translation time : ", end_translation_time - start_translation_time)
 
-    if translation_google == '' and translation_tilde == '' and translation_ut == '':
+    if translation_google == '' and translation_tilde == '' and translation_ut == '' and translation_yandex == '':
         return json.dumps({
             'success': False
         })
@@ -104,7 +106,8 @@ def play():
         'translations': [
             {'translator': 'google', 'translation': translation_google},
             {'translator': 'tilde', 'translation': translation_tilde},
-            {'translator': 'ut', 'translation': translation_ut}
+            {'translator': 'ut', 'translation': translation_ut},
+            {'translator': 'yandex', 'translation': translation_yandex},
         ],
         'source': request_args['q']
     })
@@ -125,7 +128,8 @@ def translate():
                "to": language_translate_to,
                "source_text": source_text})
         ut = UT(source_text, language_translate_from, language_translate_to)
-        ut_translation = ut.get_translation()
+        # TODO: fix error
+        # ut_translation = ut.get_translation()
     except BadRequestKeyError as e:
         print("BadRequestKeyError occurred: ", e.message)
 

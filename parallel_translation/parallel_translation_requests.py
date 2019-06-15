@@ -7,6 +7,7 @@ import threading
 from translators.google import Google
 from translators.ut import UT
 from translators.tilde import Tilde
+from translators.yandex import Yandex
 
 
 def start_thread(object):
@@ -17,25 +18,28 @@ def start_thread(object):
     return
 
 
-def get_translations(source_text, language_translate_from, language_translate_to, timeout=3, num_translators=3):
-    queue = queue.Queue()
+def get_translations(source_text, language_translate_from, language_translate_to, timeout=3, num_translators=4):
+    q = queue.Queue()
     print("get_translations : language_translate_from", language_translate_from)
     print("get_translations : language_translate_to", language_translate_to)
 
-    google = Google(source_text, language_translate_from, language_translate_to, queue)
+    google = Google(source_text, language_translate_from, language_translate_to, q)
     start_thread(google)
 
-    ut = UT(source_text, language_translate_from, language_translate_to, queue)
+    ut = UT(source_text, language_translate_from, language_translate_to, q)
     start_thread(ut)
 
-    tilde = Tilde(source_text, language_translate_from, language_translate_to, queue)
+    tilde = Tilde(source_text, language_translate_from, language_translate_to, q)
     start_thread(tilde)
+
+    yandex = Yandex(source_text, language_translate_from, language_translate_to, q)
+    start_thread(yandex)
 
     translations = dict()
 
-    for _ in xrange(num_translators):
-        for key, value in queue.get().iteritems():
+    for _ in range(num_translators):
+        for key, value in q.get().items():
             translations[key] = value
-            queue.task_done()
+            q.task_done()
 
     return translations
