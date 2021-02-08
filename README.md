@@ -51,7 +51,7 @@ git clone git@github.com:TartuNLP/neurotolge.git
 The last step is installation requirements:
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 which can be found in the project.

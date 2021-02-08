@@ -4,8 +4,7 @@
 
 import time
 import datetime
-from abstract_translator import AbstractTranslator
-
+from .abstract_translator import AbstractTranslator
 
 class Tilde(AbstractTranslator):
     class ValidationError(Exception):
