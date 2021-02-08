@@ -4,11 +4,11 @@
 
 import time
 import datetime
-from abstract_translator import AbstractTranslator
+from .abstract_translator import AbstractTranslator
 
 
 class UT(AbstractTranslator):
-    def __init__(self, source_text, translate_from, translate_to, queue):
+    def __init__(self, source_text, translate_from, translate_to, queue=None):
         AbstractTranslator.__init__(self, source_text, translate_from, translate_to, queue)
         self.translation_object = {}
 
@@ -48,6 +48,6 @@ class UT(AbstractTranslator):
         try:
             self._external_api_integration()
         except Exception as e:
-            print e.message
+            print(e.message)
 
         return self.translation_object
